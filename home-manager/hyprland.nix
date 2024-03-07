@@ -5,14 +5,18 @@
       enable = true;
       settings = {
 
+         env = [
+            "XCURSOR_SIZE,24"
+            "QT_QPA_PLATFORMTHEME,qt5ct"
+         ];
+
          monitor = [
             "HDMI-A-1, 1920x1080, 0x0, 1"
             "DP-1, 1920x1080, 1920x0, 1"
          ]; 
 
          input = {
-            # kb_layout = "us, ru";
-            kb_layout = "us";
+            kb_layout = "us, ru";
             kb_options = "grp:alt_shift_toggle";
             follow_mouse = 1;
             sensitivity = 0;

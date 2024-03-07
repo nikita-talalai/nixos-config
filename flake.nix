@@ -14,7 +14,7 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       stylix.url = "github:danth/stylix/release-23.11";
-      hyprland.url = "github:hyprwm/Hyprland";
+      hyprland.url = "github:hyprwm/Hyprland/nix";
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -68,6 +68,7 @@
          modules = [
           ./nixos
          stylix.nixosModules.stylix
+         hyprland.nixosModules.default
         ];
       };
     };

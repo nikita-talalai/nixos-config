@@ -79,6 +79,7 @@
       #   # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
       extraGroups = ["wheel"];
+      shell = pkgs.zsh;
     };
   };
 
@@ -90,9 +91,6 @@
     };
   };
 
-   security.polkit.enable = true;
-   hardware.opengl.enable = true;
-
    sound.enable = true;
    hardware.pulseaudio.enable = false;
    security.rtkit.enable = true;
@@ -102,6 +100,27 @@
       alsa.support32Bit = true;
       pulse.enable = true;
    };
+
+   security.polkit.enable = true;
+
+   hardware = {
+      opengl.enable = true;
+      nvidia.modesetting.enable = true;
+   };
+
+   environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+   };
+
+   programs = {
+      zsh.enable = true;
+      hyprland = {
+         enable = true;
+         xwayland.enable = true;
+      };
+   };
+   
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
