@@ -6,5 +6,6 @@
       ./alacritty.nix
       ./hyprland.nix
       ./git.nix
+      ./zsh.nix
    ];
 }

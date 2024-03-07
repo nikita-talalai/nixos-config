@@ -10,5 +10,6 @@
       firefox
       telegram-desktop
       waybar
+      fzf
    ];
 }
