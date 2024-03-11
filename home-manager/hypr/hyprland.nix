@@ -146,7 +146,8 @@
          windowrulev2 = [
             # "float,class:^firefox$"
             # "nofullscreenrequest,class:^firefox$"
-            "nomaximizerequest, class:.*"
+            # "nomaximizerequest, class:.*"
+             "nomaxsize, class:.*"
          ];
       };
    };

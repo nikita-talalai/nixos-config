@@ -10,6 +10,7 @@
 
       shellAliases = {
          nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
+         personal = ''cd ~/personal/'';
       };
 
       history.size = 10000;
