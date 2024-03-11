@@ -17,7 +17,7 @@
 
       initExtra =''
       PROMPT="%(?.%F{green}🢂.%F{red}🢂)%f "
-      RPROMPT="$(git_super_status) %*"
+      RPROMPT='%2~ $(git_super_status) %*'
       '';
       
       plugins = [
