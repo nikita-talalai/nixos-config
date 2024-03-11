@@ -386,16 +386,13 @@
       "locked": {
         "lastModified": 1705668784,
         "narHash": "sha256-U/1Qol9H5nb8FtWSXSiHY8T4Y7TOIo7NHuqe4uuiBec=",
-        "owner": "danth",
-        "repo": "stylix",
+        "path": "/nix/store/24pgnlciyngfjy0cniardi2zqscz4c24-source",
         "rev": "a9e3ce064a778b386fb88fb152c02ae95aa2cbd2",
-        "type": "github"
+        "type": "path"
       },
       "original": {
-        "owner": "danth",
-        "ref": "release-23.11",
-        "repo": "stylix",
-        "type": "github"
+        "id": "stylix",
+        "type": "indirect"
       }
     },
     "systems": {

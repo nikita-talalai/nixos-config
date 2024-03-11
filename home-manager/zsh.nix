@@ -3,6 +3,7 @@
 {
    programs.zsh = {
       enable = true;
+      dotDir = ".config/zsh";
       enableCompletion = true;
       enableAutosuggestions = true;
       syntaxHighlighting.enable = true;
@@ -13,6 +14,11 @@
 
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
+
+      initExtra =''
+      PROMPT="%(?.%F{green}🢂.%F{red}🢂)%f "
+      RPROMPT="$(git_super_status) %*"
+      '';
       
       plugins = [
       {
@@ -29,6 +35,11 @@
         name = "forgit";
         file = "forgit.plugin.zsh";
         src = "${pkgs.zsh-forgit}/share/zsh/zsh-forgit";
+      }
+      {
+         name = "zsh-git-prompt";
+         file = "zshrc.sh";
+         src = "${pkgs.zsh-git-prompt}/share/zsh-git-prompt";
       }
     ];
    };
