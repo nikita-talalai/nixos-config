@@ -2,10 +2,13 @@
    imports = [
       ./home.nix
       ./pkgs.nix
-      # ./stylix.nix
+      ./hypr
       ./alacritty.nix
-      ./hyprland.nix
-      ./git.nix
       ./zsh.nix
+      ./git.nix
+      ./dunst.nix
+      ./zathura.nix
+      ./theme.nix
+      ./rofi.nix
    ];
 }

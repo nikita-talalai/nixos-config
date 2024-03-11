@@ -1,11 +1,16 @@
-{ hyprland, ...}:
+{ config, pkgs, hyprland, ...}:
 
 {
+   home.packages = with pkgs; [
+      hyprpicker
+   ];
+
    wayland.windowManager.hyprland = {
       enable = true;
       settings = {
 
          env = [
+            "XCURSOR_THEME,Bibata-Modern-Ice"
             "XCURSOR_SIZE,24"
             "QT_QPA_PLATFORMTHEME,qt5ct"
          ];
@@ -14,6 +19,18 @@
             "HDMI-A-1, 1920x1080, 0x0, 1"
             "DP-1, 1920x1080, 1920x0, 1"
          ]; 
+
+         workspace = [
+            "1, monitor:HDMI-A-1"
+            "2, monitor:HDMI-A-1"
+            "3, monitor:HDMI-A-1"
+            "4, monitor:DP-1"
+            "5, monitor:DP-1"
+         ];
+
+         exec-once = [
+            "hyprpaper & waybar"
+         ];
 
          input = {
             kb_layout = "us, ru";
@@ -79,8 +96,6 @@
             force_default_wallpaper = -1; # Set to 0 or 1 to disable the anime mascot wallpapers
          };
 
-        # windowrulev2 = "nomaximizerequest, class:.*";
-
          "$mainMod" = "SUPER";
          "$terminal" = "alacritty";
          "$browser" = "firefox";
@@ -126,6 +141,12 @@
          bindm = [
             "$mainMod, mouse:272, movewindow"
             "$mainMod, mouse:273, resizewindow"
+         ];
+
+         windowrulev2 = [
+            # "float,class:^firefox$"
+            # "nofullscreenrequest,class:^firefox$"
+            "nomaximizerequest, class:.*"
          ];
       };
    };

@@ -9,5 +9,8 @@
          git
          pamixer
          pavucontrol
+
+         ltrace
+         file
       ];
 }
