@@ -9,5 +9,6 @@
       telegram-desktop
       fzf
       ripgrep-all
+      haskellPackages.kmonad
    ];
 }

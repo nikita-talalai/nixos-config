@@ -10,5 +10,6 @@
       ./zathura.nix
       ./theme.nix
       ./rofi.nix
+      ./kmonad.nix
    ];
 }

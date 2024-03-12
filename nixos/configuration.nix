@@ -78,7 +78,7 @@
       # openssh.authorizedKeys.keys = [
       #   # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "input" "uinput"];
       shell = pkgs.zsh;
     };
   };
@@ -135,6 +135,20 @@
       LC_TELEPHONE = "ru_RU.UTF-8";
       LC_TIME = "ru_RU.UTF-8";
    };
+
+   systemd.services.kmonad = {
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      description = "Start kmonad";
+      serviceConfig = {
+         Type = "simple";
+         User = "root";
+         ExecStart = ''${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd'';
+      };
+   };
+
+
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }

@@ -21,7 +21,8 @@
       };
 
       font = {
-         name = "Sans";
+         name = "Hack";
+         package = pkgs.nerdfonts;
          size = 11;
       };
    };
