@@ -13,6 +13,7 @@
             "XCURSOR_THEME,Bibata-Modern-Ice"
             "XCURSOR_SIZE,24"
             "QT_QPA_PLATFORMTHEME,qt5ct"
+            "NIXOS_CONFIG,/home/nikita/personal/github/nixos-config/"
          ];
 
          monitor = [
@@ -29,7 +30,7 @@
          ];
 
          exec-once = [
-            "hyprpaper & waybar"
+            "hyprpaper"
          ];
 
          input = {

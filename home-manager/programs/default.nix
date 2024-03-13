@@ -1,5 +1,6 @@
 {
    imports = [
+      ./hypr
       ./lazygit.nix
       ./git.nix
       ./zsh.nix

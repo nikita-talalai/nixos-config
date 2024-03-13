@@ -19,6 +19,10 @@
       initExtra =''
       PROMPT="%(?.%F{green}🢂.%F{red}🢂)%f "
       RPROMPT='%2~ $(git_super_status) %*'
+
+      ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
+      ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{✚%G%}"
+
       '';
       
       plugins = [
