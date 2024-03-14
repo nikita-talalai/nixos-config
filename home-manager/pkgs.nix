@@ -7,9 +7,11 @@
       neovim
       firefox
       telegram-desktop
-      fzf
       ripgrep-all
       haskellPackages.kmonad
       inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.hyprshot
+      wf-recorder
+      slurp
+      mpv
    ];
 }

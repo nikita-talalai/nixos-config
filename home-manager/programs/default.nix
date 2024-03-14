@@ -8,5 +8,6 @@
       ./dunst.nix
       ./zathura.nix
       ./alacritty.nix
+      ./fzf.nix
    ];
 }

@@ -11,6 +11,7 @@
       shellAliases = {
          nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
          personal = ''cd ~/personal/'';
+         ll = ''ls -la'';
       };
 
       history.size = 10000;
@@ -22,7 +23,6 @@
 
       ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
       ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{✚%G%}"
-
       '';
       
       plugins = [
