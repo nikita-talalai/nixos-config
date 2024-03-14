@@ -17,12 +17,37 @@
       history.size = 10000;
       history.path = "${config.xdg.dataHome}/zsh/history";
 
+      defaultKeymap = "viins";
+
       initExtra =''
       PROMPT="%(?.%F{green}🢂.%F{red}🢂)%f "
       RPROMPT='%2~ $(git_super_status) %*'
 
       ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
       ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{✚%G%}"
+
+      KEYTIMEOUT=5
+
+      function zle-keymap-select {
+         if [[ ''${KEYMAP} == vicmd ]] ||
+            [[ $1 = 'block' ]]; then
+            echo -ne '\e[1 q'
+
+         elif [[ ''${KEYMAP} == main ]] ||
+              [[ ''${KEYMAP} == viins ]] ||
+              [[ ''${KEYMAP} = '''''' ]] ||
+              [[ $1 = 'beam' ]]; then
+              echo -ne '\e[5 q'
+         fi
+         }
+
+      zle -N zle-keymap-select
+
+      _fix_cursor() {
+         echo -ne '\e[5 q'
+      }
+
+      precmd_functions+=(_fix_cursor)
       '';
       
       plugins = [
