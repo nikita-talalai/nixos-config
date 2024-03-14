@@ -11,7 +11,7 @@
       shellAliases = {
          nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
          personal = ''cd ~/personal/'';
-         ll = ''ls -la'';
+         ll = ''eza --total-size'';
       };
 
       history.size = 10000;

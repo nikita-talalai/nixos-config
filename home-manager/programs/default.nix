@@ -9,5 +9,6 @@
       ./zathura.nix
       ./alacritty.nix
       ./fzf.nix
+      ./eza.nix
    ];
 }
