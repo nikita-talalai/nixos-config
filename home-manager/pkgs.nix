@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 {
    home.packages = with pkgs;
@@ -10,5 +10,6 @@
       fzf
       ripgrep-all
       haskellPackages.kmonad
+      inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.hyprshot
    ];
 }

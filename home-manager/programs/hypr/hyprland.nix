@@ -137,6 +137,10 @@
             "$mainMod SHIFT, 9, movetoworkspace, 9"
             "$mainMod SHIFT, 0, movetoworkspace, 1"
 
+            "$mainMod, PRINT, exec, hyprshot -m window --clipboard-only"
+            ", PRINT, exec, hyprshot -m output --clipboard-only"
+            "$shiftMod, PRINT, exec, hyprshot -m region --clipboard-only"
+
          ];
 
          bindm = [
