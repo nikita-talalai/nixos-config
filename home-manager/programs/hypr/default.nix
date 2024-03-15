@@ -4,5 +4,6 @@
       ./waybar.nix
       ./hyprpaper.nix
       ./hyprlock.nix
+      ./scripts
    ];
 }

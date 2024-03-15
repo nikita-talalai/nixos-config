@@ -10,5 +10,6 @@
       ./alacritty.nix
       ./fzf.nix
       ./eza.nix
+      ./swappy.nix
    ];
 }
