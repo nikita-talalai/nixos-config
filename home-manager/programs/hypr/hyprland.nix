@@ -138,6 +138,9 @@
             "$mainMod SHIFT, 0, movetoworkspace, 1"
 
             "$mainMod, PRINT, exec, screenshot"
+
+            "$mainMod Control_L, mouse_up, exec, zoom +0.25"
+            "$mainMod Control_L, mouse_down, exec, zoom -0.25"
          ];
 
          bindm = [
