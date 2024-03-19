@@ -15,6 +15,7 @@
 
       # stylix.url = "github:danth/stylix/release-23.11";
       hyprland.url = "github:hyprwm/Hyprland/nix";
+      nvim.url = "git+ssh://git@github.com/nikita-talalai/nvim-nix.git"; 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
 
@@ -30,6 +31,7 @@
     home-manager,
     stylix,
     hyprland,
+    nvim,
     ...
   } @ inputs: let
     inherit (self) outputs;

@@ -4,7 +4,6 @@
    home.packages = with pkgs;
    [
       fastfetch
-      neovim
       firefox
       telegram-desktop
       ripgrep-all
@@ -16,5 +15,7 @@
       grim
       imv
       swappy
+      jq
+      inputs.nvim.packages.x86_64-linux.nvim
    ];
 }

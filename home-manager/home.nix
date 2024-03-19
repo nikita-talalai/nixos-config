@@ -20,7 +20,8 @@
   ];
 
   nixpkgs = {
-    # overlays = [
+    overlays = [
+         inputs.nvim.overlays.default
       # Add overlays your own flake exports (from overlays and pkgs dir):
       # outputs.overlays.additions
       # outputs.overlays.modifications
@@ -35,7 +36,7 @@
       #     patches = [ ./change-hello-to-hi.patch ];
       #   });
       # })
-    # ];
+    ];
     # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
