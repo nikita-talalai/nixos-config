@@ -12,6 +12,7 @@
          nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
          personal = ''cd ~/personal/'';
          ll = ''eza --total-size'';
+         nixos = ''cd ''${NIXOS_CONFIG}'';
       };
 
       history.size = 10000;

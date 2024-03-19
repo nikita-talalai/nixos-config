@@ -141,6 +141,7 @@
 
             "$mainMod Control_L, mouse_up, exec, zoom +0.25"
             "$mainMod Control_L, mouse_down, exec, zoom -0.25"
+	    "$mainMod, R, exec, rofi -show drun"
          ];
 
          bindm = [
