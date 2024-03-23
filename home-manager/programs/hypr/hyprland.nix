@@ -47,7 +47,7 @@
             "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
             "col.inactive_border" = "rgba(595959aa)";
             resize_on_border = true;
-            layout = "dwindle";
+            layout = "master";
 
             # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
             allow_tearing = false;
@@ -67,7 +67,7 @@
          };
 
          animations = {
-            enabled = "yes";
+            enabled = false;
             bezier = "myBezier, 0.05, 0.9, 0.1, 1.05";
             animation = [
                "windows, 1, 7, myBezier"
