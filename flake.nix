@@ -14,7 +14,7 @@
       home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
       # stylix.url = "github:danth/stylix/release-23.11";
-      hyprland.url = "github:hyprwm/Hyprland/nix";
+      # hyprland.url = "github:hyprwm/Hyprland/nix";
       nvim.url = "git+ssh://git@github.com/nikita-talalai/nvim-nix.git"; 
     # TODO: Add any other flake you might need
     # hardware.url = "github:nixos/nixos-hardware";
@@ -29,8 +29,8 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
-    stylix,
-    hyprland,
+    # stylix,
+    # hyprland,
     nvim,
     ...
   } @ inputs: let
@@ -71,7 +71,7 @@
          modules = [
           ./nixos
          # stylix.nixosModules.stylix
-         hyprland.nixosModules.default
+         # hyprland.nixosModules.default
         ];
       };
     };
@@ -83,7 +83,7 @@
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
             ./home-manager
-            hyprland.homeManagerModules.default
+            # hyprland.homeManagerModules.default
         ];
       };
     };
