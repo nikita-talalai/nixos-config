@@ -1,17 +1,14 @@
 { pkgs, ... }:
 
 let
-   zoom = pkgs.writeShellScriptBin "zoom" ''
-         
-         input=$(hyprctl getoption misc:cursor_zoom_factor | head -n1)
+  zoom = pkgs.writeShellScriptBin "zoom" ''
 
-         value=''${input:7}
+    input=$(hyprctl getoption misc:cursor_zoom_factor | head -n1)
 
-         result=$(echo "$value$1" | ${pkgs.bc}/bin/bc)
+    value=''${input:7}
 
-         hyprctl keyword misc:cursor_zoom_factor $result 1> /dev/null
-         '';
-in
-{
-   home.packages = [ zoom ];
-}
+    result=$(echo "$value$1" | ${pkgs.bc}/bin/bc)
+
+    hyprctl keyword misc:cursor_zoom_factor $result 1> /dev/null
+  '';
+in { home.packages = [ zoom ]; }

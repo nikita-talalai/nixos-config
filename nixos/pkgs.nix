@@ -1,16 +1,15 @@
 { pkgs, ... }:
 
 {
-   environment.systemPackages = with pkgs;
-      [
-         vim
-         curl
-         wl-clipboard
-         git
-         pamixer
-         pavucontrol
+  environment.systemPackages = with pkgs; [
+    vim
+    curl
+    wl-clipboard
+    git
+    pamixer
+    pavucontrol
 
-         ltrace
-         file
-      ];
+    ltrace
+    file
+  ];
 }

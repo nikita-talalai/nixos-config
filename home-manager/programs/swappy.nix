@@ -1,8 +1,8 @@
 { config, ... }:
 
 {
-   home.file."${config.xdg.configHome}/swappy/config" = {
-      text =''
+  home.file."${config.xdg.configHome}/swappy/config" = {
+    text = ''
       [Default]
       save_dir=$HOME/personal/pictures/screenshots
       save_filename_format=screenshot-%d%m%Y-%H%M%S.png
@@ -13,6 +13,6 @@
       paint_mode=brush
       early_exit=false
       fill_shape=false
-      '';
-   };
+    '';
+  };
 }

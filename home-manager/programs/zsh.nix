@@ -1,26 +1,26 @@
 { config, pkgs, ... }:
 
 {
-   programs.zsh = {
-      enable = true;
-      dotDir = ".config/zsh";
-      enableCompletion = true;
-      enableAutosuggestions = true;
-      syntaxHighlighting.enable = true;
+  programs.zsh = {
+    enable = true;
+    dotDir = ".config/zsh";
+    enableCompletion = true;
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
 
-      shellAliases = {
-         nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
-         personal = ''cd ~/personal/'';
-         ll = ''eza --total-size'';
-         nixos = ''cd ''${NIXOS_CONFIG}'';
-      };
+    shellAliases = {
+      nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
+      personal = "cd ~/personal/";
+      ll = "eza --total-size";
+      nixos = "cd \${NIXOS_CONFIG}";
+    };
 
-      history.size = 10000;
-      history.path = "${config.xdg.dataHome}/zsh/history";
+    history.size = 10000;
+    history.path = "${config.xdg.dataHome}/zsh/history";
 
-      defaultKeymap = "viins";
+    defaultKeymap = "viins";
 
-      initExtra =''
+    initExtra = ''
       PROMPT="%(?.%F{green}🢂.%F{red}🢂)%f "
       RPROMPT='%2~ $(git_super_status) %*'
 
@@ -49,9 +49,9 @@
       }
 
       precmd_functions+=(_fix_cursor)
-      '';
-      
-      plugins = [
+    '';
+
+    plugins = [
       {
         name = "fast-syntax-highlighting";
         file = "fast-syntax-highlighting.plugin.zsh";
@@ -68,10 +68,10 @@
         src = "${pkgs.zsh-forgit}/share/zsh/zsh-forgit";
       }
       {
-         name = "zsh-git-prompt";
-         file = "zshrc.sh";
-         src = "${pkgs.zsh-git-prompt}/share/zsh-git-prompt";
+        name = "zsh-git-prompt";
+        file = "zshrc.sh";
+        src = "${pkgs.zsh-git-prompt}/share/zsh-git-prompt";
       }
     ];
-   };
+  };
 }

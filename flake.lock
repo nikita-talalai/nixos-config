@@ -219,15 +219,15 @@
       "locked": {
         "lastModified": 1711133832,
         "narHash": "sha256-9dKBG1Wa0l7qVChfzfdf0TBCPY6KIdZRUFfyRTwUJec=",
-        "ref": "refs/heads/main",
+        "owner": "nikita-talalai",
+        "repo": "nvim-nix",
         "rev": "bca8234054d2ce2c2d7282806e729c5b42f5501c",
-        "revCount": 11,
-        "type": "git",
-        "url": "ssh://git@github.com/nikita-talalai/nvim-nix.git"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "ssh://git@github.com/nikita-talalai/nvim-nix.git"
+        "owner": "nikita-talalai",
+        "repo": "nvim-nix",
+        "type": "github"
       }
     },
     "oil-nvim": {

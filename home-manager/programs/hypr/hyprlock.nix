@@ -1,9 +1,9 @@
 { config, ... }:
 
 {
-   home.file."${config.xdg.configHome}/hypr/hyprlock.conf" = {
-      enable = true;
-      text = ''
+  home.file."${config.xdg.configHome}/hypr/hyprlock.conf" = {
+    enable = true;
+    text = ''
 
       background {
           monitor =
@@ -74,6 +74,6 @@
           halign = center
           valign = bottom
       }
-      '';
-   };
+    '';
+  };
 }

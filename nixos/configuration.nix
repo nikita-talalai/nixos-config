@@ -1,84 +1,30 @@
-# Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
-{
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
-  imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+{ inputs, outputs, lib, config, pkgs, ... }: {
+  imports = [ ./hardware-configuration.nix ];
 
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
+  nixpkgs = { config = { allowUnfree = true; }; };
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./users.nix
+  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+    ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
-    # Import your generated (nixos-generate-config) hardware configuration
-    ./hardware-configuration.nix
-  ];
-
-  nixpkgs = {
-    # overlays = [
-    #   # Add overlays your own flake exports (from overlays and pkgs dir):
-    #   outputs.overlays.additions
-    #   outputs.overlays.modifications
-    #   outputs.overlays.unstable-packages
-    #
-    #   # You can also add overlays exported from other flakes:
-    #   # neovim-nightly-overlay.overlays.default
-    #
-    #   # Or define it inline, for example:
-    #   # (final: prev: {
-    #   #   hi = final.hello.overrideAttrs (oldAttrs: {
-    #   #     patches = [ ./change-hello-to-hi.patch ];
-    #   #   });
-    #   # })
-    # ];
-    # Configure your nixpkgs instance
-    config = {
-      # Disable if you don't want unfree packages
-      allowUnfree = true;
-    };
-  };
-
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
-  nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
-
-  # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = ["/etc/nix/path"];
-  environment.etc =
-    lib.mapAttrs'
-    (name: value: {
-      name = "nix/path/${name}";
-      value.source = value.flake;
-    })
-    config.nix.registry;
+  nix.nixPath = [ "/etc/nix/path" ];
+  environment.etc = lib.mapAttrs' (name: value: {
+    name = "nix/path/${name}";
+    value.source = value.flake;
+  }) config.nix.registry;
 
   nix.settings = {
     experimental-features = "nix-command flakes";
-    # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
 
-  networking.hostName = "nixos";
+  networking.hostName = "z270a";
 
-  # TODO: This is just an example, be sure to use whatever bootloader you prefer
   boot.loader.systemd-boot.enable = true;
 
   users.users = {
     nikita = {
       isNormalUser = true;
-      # openssh.authorizedKeys.keys = [
-      #   # TODO: Add your SSH public key(s) here, if you plan on using SSH to connect
-      # ];
-      extraGroups = ["wheel" "input" "uinput"];
+      extraGroups = [ "wheel" "input" "uinput" ];
       shell = pkgs.zsh;
     };
   };
@@ -91,64 +37,62 @@
     };
   };
 
-   sound.enable = true;
-   hardware.pulseaudio.enable = false;
-   security.rtkit.enable = true;
-   services.pipewire = {
+  sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  security.polkit.enable = true;
+
+  hardware = {
+    opengl.enable = true;
+    nvidia.modesetting.enable = true;
+  };
+
+  environment.sessionVariables = {
+    WLR_NO_HARDWARE_CURSORS = "1";
+    NIXOS_OZONE_WL = "1";
+  };
+
+  programs = {
+    zsh.enable = true;
+    hyprland = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-   };
+      xwayland.enable = true;
+    };
+  };
 
-   security.polkit.enable = true;
+  time.timeZone = "Europe/Moscow";
 
-   hardware = {
-      opengl.enable = true;
-      nvidia.modesetting.enable = true;
-   };
+  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "ru_RU.UTF-8";
+    LC_IDENTIFICATION = "ru_RU.UTF-8";
+    LC_MEASUREMENT = "ru_RU.UTF-8";
+    LC_MONETARY = "ru_RU.UTF-8";
+    LC_NAME = "ru_RU.UTF-8";
+    LC_NUMERIC = "ru_RU.UTF-8";
+    LC_PAPER = "ru_RU.UTF-8";
+    LC_TELEPHONE = "ru_RU.UTF-8";
+    LC_TIME = "ru_RU.UTF-8";
+  };
 
-   environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-   };
+  systemd.services.kmonad = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    description = "Start kmonad";
+    serviceConfig = {
+      Type = "simple";
+      User = "root";
+      ExecStart =
+        "${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd";
+    };
+  };
 
-   programs = {
-      zsh.enable = true;
-      hyprland = {
-         enable = true;
-         xwayland.enable = true;
-      };
-   };
-   
-   time.timeZone = "Europe/Moscow";
-
-   i18n.defaultLocale = "en_US.UTF-8";
-   i18n.extraLocaleSettings = {
-      LC_ADDRESS = "ru_RU.UTF-8";
-      LC_IDENTIFICATION = "ru_RU.UTF-8";
-      LC_MEASUREMENT = "ru_RU.UTF-8";
-      LC_MONETARY = "ru_RU.UTF-8";
-      LC_NAME = "ru_RU.UTF-8";
-      LC_NUMERIC = "ru_RU.UTF-8";
-      LC_PAPER = "ru_RU.UTF-8";
-      LC_TELEPHONE = "ru_RU.UTF-8";
-      LC_TIME = "ru_RU.UTF-8";
-   };
-
-   systemd.services.kmonad = {
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
-      description = "Start kmonad";
-      serviceConfig = {
-         Type = "simple";
-         User = "root";
-         ExecStart = ''${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd'';
-      };
-   };
-
-
-
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
 }

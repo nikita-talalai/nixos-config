@@ -1,12 +1,11 @@
 { config, pkgs, ... }:
 
 {
-   home.packages = [ pkgs.dunst ];
+  home.packages = [ pkgs.dunst ];
 
-   home.file."${config.xdg.configHome}/dunst/dunstrc" = {
-      enable = true;
-      text =
-      ''
+  home.file."${config.xdg.configHome}/dunst/dunstrc" = {
+    enable = true;
+    text = ''
       [global]
       frame_color = "#cad3f5"
       separator_color= frame
@@ -35,6 +34,6 @@
 
       [fullscreen]
          fullscreen = show
-      '';
-   };
+    '';
+  };
 }
