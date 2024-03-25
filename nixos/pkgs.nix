@@ -5,6 +5,7 @@
     vim
     curl
     wl-clipboard
+    xclip
     git
     pamixer
     pavucontrol

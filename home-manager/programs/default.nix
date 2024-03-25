@@ -1,6 +1,7 @@
 {
   imports = [
     ./hypr
+    ./xmonad
     ./lazygit.nix
     ./git.nix
     ./zsh.nix

@@ -1,1 +1,1 @@
-{ imports = [ ./configuration.nix ./pkgs.nix ./display-manager.nix ]; }
+{ imports = [ ./configuration.nix ./pkgs.nix ./xserver.nix ]; }
