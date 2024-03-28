@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   home.file."${config.xdg.configHome}/hypr/hyprlock.conf" = {
     enable = true;
     text = ''

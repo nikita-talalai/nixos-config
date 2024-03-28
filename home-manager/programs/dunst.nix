@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = [ pkgs.dunst ];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [pkgs.dunst];
 
   home.file."${config.xdg.configHome}/dunst/dunstrc" = {
     enable = true;

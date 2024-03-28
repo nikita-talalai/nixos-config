@@ -1,12 +1,14 @@
-{ config, pkgs, hyprland, ... }:
-
 {
-  home.packages = with pkgs; [ hyprpicker ];
+  config,
+  pkgs,
+  hyprland,
+  ...
+}: {
+  home.packages = with pkgs; [hyprpicker];
 
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-
       env = [
         "XCURSOR_THEME,Bibata-Modern-Ice"
         "XCURSOR_SIZE,24"
@@ -14,7 +16,7 @@
         "NIXOS_CONFIG,/home/nikita/personal/github/nixos-config/"
       ];
 
-      monitor = [ "HDMI-A-1, 1920x1080, 0x0, 1" "DP-1, 1920x1080, 1920x0, 1" ];
+      monitor = ["HDMI-A-1, 1920x1080, 0x0, 1" "DP-1, 1920x1080, 1920x0, 1"];
 
       workspace = [
         "1, monitor:HDMI-A-1"
@@ -24,7 +26,7 @@
         "5, monitor:DP-1"
       ];
 
-      exec-once = [ "hyprpaper" ];
+      exec-once = ["hyprpaper"];
 
       input = {
         kb_layout = "us, ru";
@@ -77,9 +79,9 @@
         preserve_split = "yes";
       };
 
-      master = { new_is_master = true; };
+      master = {new_is_master = true;};
 
-      gestures = { workspace_swipe = "off"; };
+      gestures = {workspace_swipe = "off";};
 
       misc = {
         # See https://wiki.hyprland.org/Configuring/Variables/ for more

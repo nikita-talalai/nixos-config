@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-let
+{pkgs, ...}: let
   screenshot = pkgs.writeShellScriptBin "screenshot" ''
     #Inspired by Stephan Raabe (https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/scripts/screenshot.sh?ref_type=heads)
 
@@ -22,4 +20,4 @@ let
         ;;
     esac
   '';
-in { home.packages = [ screenshot ]; }
+in {home.packages = [screenshot];}

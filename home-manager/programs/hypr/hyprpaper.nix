@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = [ pkgs.hyprpaper ];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [pkgs.hyprpaper];
 
   home.file."${config.xdg.configHome}/hypr/hyprpaper.conf" = {
     enable = true;

@@ -12,27 +12,33 @@
     nvim.url = "github:nikita-talalai/nvim-nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nvim, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      nixosConfigurations = {
-        z270a = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs; };
-          modules = [ ./nixos ];
-        };
+  outputs = {
+    self,
+    nixpkgs,
+    nixpkgs-unstable,
+    home-manager,
+    nvim,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    nixosConfigurations = {
+      z270a = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {inherit inputs;};
+        modules = [./nixos];
       };
-
-      homeConfigurations = {
-        "nikita@z270a" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
-          modules = [ ./home-manager ];
-        };
-      };
-
-      formatter.${system} = pkgs.alejandra;
     };
+
+    homeConfigurations = {
+      "nikita@z270a" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs;};
+        modules = [./home-manager];
+      };
+    };
+
+    formatter.${system} = pkgs.alejandra;
+  };
 }

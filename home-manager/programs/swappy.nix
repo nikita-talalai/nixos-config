@@ -1,6 +1,4 @@
-{ config, ... }:
-
-{
+{config, ...}: {
   home.file."${config.xdg.configHome}/swappy/config" = {
     text = ''
       [Default]

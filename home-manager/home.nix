@@ -1,7 +1,13 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   nixpkgs = {
-    overlays = [ inputs.nvim.overlays.default ];
+    overlays = [inputs.nvim.overlays.default];
     config = {
       allowUnfree = true;
       allowUnfreePredicate = _: true;

@@ -1,1 +1,1 @@
-{ imports = [ ./screenshot.nix ./zoom.nix ]; }
+{imports = [./screenshot.nix ./zoom.nix];}

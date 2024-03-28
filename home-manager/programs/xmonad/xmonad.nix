@@ -5,5 +5,5 @@
     config = ./xmonad.hs;
   };
 
-  programs.xmobar = { enable = true; };
+  programs.xmobar = {enable = true;};
 }

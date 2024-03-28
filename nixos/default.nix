@@ -1,1 +1,1 @@
-{ imports = [ ./configuration.nix ./pkgs.nix ./xserver.nix ]; }
+{imports = [./configuration.nix ./pkgs.nix ./xserver.nix];}

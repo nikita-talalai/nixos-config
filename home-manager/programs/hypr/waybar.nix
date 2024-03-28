@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
-  home.packages = [ pkgs.waybar ];
+  config,
+  pkgs,
+  ...
+}: {
+  home.packages = [pkgs.waybar];
 
   programs.waybar = {
     enable = true;
@@ -12,9 +14,8 @@
         height = 30;
         output = "HDMI-A-1";
         margin-left = 10;
-        modules-center =
-          [ "pulseaudio#percentage" "clock" "clock#date" "clock#time" ];
-        "pulseaudio#percentage" = { format = "{volume}"; };
+        modules-center = ["pulseaudio#percentage" "clock" "clock#date" "clock#time"];
+        "pulseaudio#percentage" = {format = "{volume}";};
         "clock" = {
           format = "{:%a}";
           "tooltip-format" = ''

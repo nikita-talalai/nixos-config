@@ -1,16 +1,26 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+{
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix];
 
-  nixpkgs = { config = { allowUnfree = true; }; };
+  nixpkgs = {config = {allowUnfree = true;};};
 
-  nix.registry = (lib.mapAttrs (_: flake: { inherit flake; }))
+  nix.registry =
+    (lib.mapAttrs (_: flake: {inherit flake;}))
     ((lib.filterAttrs (_: lib.isType "flake")) inputs);
 
-  nix.nixPath = [ "/etc/nix/path" ];
-  environment.etc = lib.mapAttrs' (name: value: {
-    name = "nix/path/${name}";
-    value.source = value.flake;
-  }) config.nix.registry;
+  nix.nixPath = ["/etc/nix/path"];
+  environment.etc =
+    lib.mapAttrs' (name: value: {
+      name = "nix/path/${name}";
+      value.source = value.flake;
+    })
+    config.nix.registry;
 
   nix.settings = {
     experimental-features = "nix-command flakes";
@@ -24,7 +34,7 @@
   users.users = {
     nikita = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "input" "uinput" ];
+      extraGroups = ["wheel" "input" "uinput"];
       shell = pkgs.zsh;
     };
   };
@@ -83,14 +93,13 @@
   };
 
   systemd.services.kmonad = {
-    wantedBy = [ "multi-user.target" ];
-    after = [ "network.target" ];
+    wantedBy = ["multi-user.target"];
+    after = ["network.target"];
     description = "Start kmonad";
     serviceConfig = {
       Type = "simple";
       User = "root";
-      ExecStart =
-        "${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd";
+      ExecStart = "${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd";
     };
   };
 
