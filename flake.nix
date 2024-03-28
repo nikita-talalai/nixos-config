@@ -14,23 +14,25 @@
 
   outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, nvim, ... }@inputs:
     let
-      inherit (self) outputs;
-      systems = [ "x86_64-linux" ];
-      forAllSystems = nixpkgs.lib.genAttrs systems;
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
     in {
       nixosConfigurations = {
         z270a = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs outputs; };
+          inherit system;
+          specialArgs = { inherit inputs; };
           modules = [ ./nixos ];
         };
       };
 
       homeConfigurations = {
         "nikita@z270a" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = { inherit inputs outputs; };
+          inherit pkgs;
+          extraSpecialArgs = { inherit inputs; };
           modules = [ ./home-manager ];
         };
       };
+
+      formatter.${system} = pkgs.alejandra;
     };
 }
