@@ -5,7 +5,7 @@
       window.opacity = 0.7;
       window.blur = true;
 
-      font.size = 20;
+      font.size = 15;
 
       cursor.style = "Beam";
       cursor.blinking = "Off";

@@ -10,6 +10,9 @@
 
     # stylix.url = "github:danth/stylix/release-23.11";
     nvim.url = "github:nikita-talalai/nvim-nix";
+
+    east-gate.url = "github:head-gardener/east-gate";
+    east-gate.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -18,6 +21,7 @@
     nixpkgs-unstable,
     home-manager,
     nvim,
+    east-gate,
     ...
   } @ inputs: let
     system = "x86_64-linux";

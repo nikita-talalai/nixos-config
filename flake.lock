@@ -16,9 +16,48 @@
         "type": "github"
       }
     },
+    "east-gate": {
+      "inputs": {
+        "flake-parts": "flake-parts",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711106744,
+        "narHash": "sha256-FP6hj/0SpWm8j9tzy+3KnPOQcFgIGvhK//QhLkPOh0c=",
+        "owner": "head-gardener",
+        "repo": "east-gate",
+        "rev": "970a54e310853b4933b9b3355e7d4af788db7a15",
+        "type": "github"
+      },
+      "original": {
+        "owner": "head-gardener",
+        "repo": "east-gate",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1709336216,
+        "narHash": "sha256-Dt/wOWeW6Sqm11Yh+2+t0dfEWxoMxGBvv3JpIocFl9E=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "f7b3c975cf067e56e7cda6cb098ebe3fb4d74ca2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
       },
       "locked": {
         "lastModified": 1706830856,
@@ -54,7 +93,7 @@
     },
     "gen-luarc": {
       "inputs": {
-        "flake-parts": "flake-parts",
+        "flake-parts": "flake-parts_2",
         "nixpkgs": [
           "nvim",
           "nixpkgs"
@@ -146,6 +185,24 @@
     "nixpkgs-lib": {
       "locked": {
         "dir": "lib",
+        "lastModified": 1709237383,
+        "narHash": "sha256-cy6ArO4k5qTx+l5o+0mL9f5fa86tYUX3ozE1S+Txlds=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "1536926ef5621b09bba54035ae2bb6d806d72ac8",
+        "type": "github"
+      },
+      "original": {
+        "dir": "lib",
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "dir": "lib",
         "lastModified": 1706550542,
         "narHash": "sha256-UcsnCG6wx++23yeER4Hg18CXWbgNpqNXcHIo5/1Y+hc=",
         "owner": "NixOS",
@@ -163,11 +220,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1711532879,
-        "narHash": "sha256-VUvOxVoxBokiZETZdZU97MnJpeKa19KqSOPlC84QB9Y=",
+        "lastModified": 1711593151,
+        "narHash": "sha256-/9NCoPI7fqJIN8viONsY9X0fAeq8jc3GslFCO0ky6TQ=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "2230a20f2b5a14f2db3d7f13a2dc3c22517e790b",
+        "rev": "bb2b73df7bcfbd2dd55ff39b944d70547d53c267",
         "type": "github"
       },
       "original": {
@@ -204,11 +261,11 @@
         "oil-nvim": "oil-nvim"
       },
       "locked": {
-        "lastModified": 1711593746,
-        "narHash": "sha256-GQ3KTfPf2NCMrTKXxvCXWpeE9lx3LFRkgJLSeYrY5jw=",
+        "lastModified": 1711622584,
+        "narHash": "sha256-1YOG7eBq1BdxaZVDXNcNLXS/QIZBkfbjKdSTnKAPLRs=",
         "owner": "nikita-talalai",
         "repo": "nvim-nix",
-        "rev": "4b61170373b56935c607f0f08661e1cd715cf9a3",
+        "rev": "5f3dea34a17579e7a87b56f23a48d96418e38921",
         "type": "github"
       },
       "original": {
@@ -235,6 +292,7 @@
     },
     "root": {
       "inputs": {
+        "east-gate": "east-gate",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",

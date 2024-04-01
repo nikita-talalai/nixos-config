@@ -1,3 +1,5 @@
+{ pkgs, ... }:
+
 {
   services.xserver = {
     enable = true;
@@ -17,4 +19,8 @@
       enableContribAndExtras = true;
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    xorg.xev
+  ];
 }

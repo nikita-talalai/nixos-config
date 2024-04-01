@@ -8,6 +8,7 @@
     firefox
     telegram-desktop
     ripgrep-all
+    ripgrep
     haskellPackages.kmonad
     inputs.nixpkgs-unstable.legacyPackages.x86_64-linux.hyprlock
     wf-recorder
@@ -18,5 +19,6 @@
     swappy
     jq
     inputs.nvim.packages.x86_64-linux.nvim
+    scrot
   ];
 }

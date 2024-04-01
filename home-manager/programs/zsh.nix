@@ -10,6 +10,10 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
+
     shellAliases = {
       nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
       personal = "cd ~/personal/";
