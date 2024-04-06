@@ -20,5 +20,7 @@
     jq
     inputs.nvim.packages.x86_64-linux.nvim
     scrot
+    qbittorrent
+    vlc
   ];
 }
