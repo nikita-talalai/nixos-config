@@ -14,6 +14,8 @@
 
     east-gate.url = "github:head-gardener/east-gate";
     east-gate.inputs.nixpkgs.follows = "nixpkgs";
+
+    treefmt-nix.url = "github:numtide/treefmt-nix";
   };
 
   outputs = inputs:
@@ -22,13 +24,19 @@
       imports = [
         ./hosts
         ./home-manager
+        inputs.treefmt-nix.flakeModule
       ];
 
       systems = [ "x86_64-linux" ];
-      perSystem = { pkgs, system, ... }: {
-        formatter = pkgs.alejandra;
+      perSystem = { config, pkgs, system, ... }: {
+        treefmt.config = {
+          projectRootFile = "flake.nix";
+          programs.alejandra.enable = true;
+        };
+        formatter = config.treefmt.build.wrapper;
 
         devShells.default = pkgs.mkShell {
+         inputsFrom = [ config.treefmt.build.devShell ];
           packages = with pkgs; [
             just
             nil
