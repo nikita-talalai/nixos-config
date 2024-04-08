@@ -6,6 +6,14 @@
   pkgs,
   ...
 }: {
+  
+  imports = [
+    ./programs
+    ./pkgs.nix
+    ./theme.nix
+    ./kmonad.nix
+  ];
+
   nixpkgs = {
     overlays = [inputs.nvim.overlays.default];
     config = {
