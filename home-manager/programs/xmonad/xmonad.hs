@@ -4,6 +4,7 @@ import System.Exit
 import XMonad.Layout.Tabbed
 import XMonad.Util.EZConfig
 import XMonad.Hooks.EastGate
+import XMonad.Util.NamedScratchpad
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -29,11 +30,23 @@ myLayout = tiled ||| Mirror tiled ||| Full ||| simpleTabbed
     ratio   = 1/2
     delta   = 3/100
 
+scratchpads = [ NS "term" "alacritty -T scratchpad" queryTerm manageTerm]
+  where 
+    queryTerm = title =? "scratchpad"
+    manageTerm = customFloating $ W.RationalRect xOffset yOffset width height
+      where
+        width = 0.9
+        height = 0.9
+        xOffset = 0.05
+        yOffset = 0.05
+
 myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , namedScratchpadManageHook scratchpads 
+    ]
 
 
 main = xmonad $ (withMetrics def) $ myConfig
@@ -47,8 +60,10 @@ myConfig = def
   , workspaces = myWorkspaces
   , normalBorderColor = "#dddddd"
   , focusedBorderColor = "#ff0000"
+  , manageHook = myManageHook
   }
   `additionalKeysP`
   [ ("M-f", spawn "firefox")
   , ("M-r", spawn "rofi -show drun")
+  , ("M-o", namedScratchpadAction scratchpads "term")
   ]
