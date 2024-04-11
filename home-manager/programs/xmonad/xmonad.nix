@@ -10,5 +10,8 @@
     ];
   };
 
-  programs.xmobar = {enable = true;};
+  home.packages = [
+    inputs.xmobar.packages.x86_64-linux.default
+  ];
+
 }

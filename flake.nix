@@ -16,6 +16,7 @@
     east-gate.inputs.nixpkgs.follows = "nixpkgs";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
+    xmobar.url = "github:nikita-talalai/xmobar-nix";
   };
 
   outputs = inputs:

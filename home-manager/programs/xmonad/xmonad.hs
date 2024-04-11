@@ -48,6 +48,9 @@ myManageHook = composeAll
     , namedScratchpadManageHook scratchpads 
     ]
 
+myStartupHook :: X ()
+myStartupHook = 
+  spawn "myxmobar"
 
 main = xmonad $ (withMetrics def) $ myConfig
 
@@ -61,6 +64,7 @@ myConfig = def
   , normalBorderColor = "#dddddd"
   , focusedBorderColor = "#ff0000"
   , manageHook = myManageHook
+  , startupHook = myStartupHook
   }
   `additionalKeysP`
   [ ("M-f", spawn "firefox")
