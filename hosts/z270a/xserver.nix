@@ -1,5 +1,9 @@
-{ pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 
+let
+    myxmonad = inputs.xmonad.packages.x86_64-linux.default;
+    myxmobar = inputs.xmobar.packages.x86_64-linux.default;
+in
 {
   services.xserver = {
     enable = true;
@@ -14,13 +18,20 @@
       '';
     };
 
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
+    windowManager = {
+      session = [{
+        name = "xmonad";
+        start = ''
+           systemd-cat -t xmonad -- ${lib.getExe myxmonad} &
+           waitPID=$!
+        '';
+      }];
     };
   };
 
   environment.systemPackages = with pkgs; [
     xorg.xev
+    myxmonad
+    myxmobar
   ];
 }
