@@ -11,6 +11,8 @@
       cursor.blinking = "Off";
 
       selection.save_to_clipboard = true;
+
+      env.TERM = "xterm-256color";
     };
   };
 }
