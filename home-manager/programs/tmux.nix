@@ -7,5 +7,6 @@
     terminal = "screen-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     keyMode = "vi";
+    tmuxinator.enable = true;
   };
 }
