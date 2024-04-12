@@ -8,5 +8,10 @@
     shell = "${pkgs.zsh}/bin/zsh";
     keyMode = "vi";
     tmuxinator.enable = true;
+    extraConfig = ''
+    set-option -g status-position top
+    plugins = with pkgs; [
+      tmuxPlugins.catppuccin
+    ];
   };
 }
