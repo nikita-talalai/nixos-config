@@ -16,6 +16,6 @@
     ./fzf.nix
     ./eza.nix
     ./swappy.nix
-    ./tmux.nix
+    ./tmux
   ];
 }
