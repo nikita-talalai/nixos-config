@@ -92,37 +92,5 @@
     LC_TIME = "ru_RU.UTF-8";
   };
 
-  systemd.services.kmonad = {
-    wantedBy = ["multi-user.target"];
-    after = ["network.target"];
-    description = "Start kmonad";
-    serviceConfig = {
-      Type = "simple";
-      User = "root";
-      ExecStart = "${pkgs.haskellPackages.kmonad}/bin/kmonad /home/nikita/.config/kmonad/config.kbd";
-    };
-  };
-
-  services.prometheus = {
-    enable = true;
-    port = 9001;
-    globalConfig = {
-      scrape_interval = "10s";
-    };
-    scrapeConfigs = [
-      {
-        job_name = "xmonad";
-        static_configs = [
-          {
-            targets = [
-              "localhost:9532"
-            ];
-          }
-        ];
-      }
-    ];
-  };
-
-
   system.stateVersion = "23.11";
 }
