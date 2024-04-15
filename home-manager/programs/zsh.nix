@@ -55,6 +55,8 @@
       }
 
       precmd_functions+=(_fix_cursor)
+
+      bindkey -M viins '\e.' insert-last-word
     '';
 
     plugins = [
