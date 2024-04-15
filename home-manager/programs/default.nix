@@ -16,6 +16,7 @@
     ./fzf.nix
     ./eza.nix
     ./swappy.nix
+    ./zoxide.nix
     ./tmux
   ];
 }
