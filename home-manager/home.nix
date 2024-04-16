@@ -6,7 +6,6 @@
   pkgs,
   ...
 }: {
-  
   imports = [
     ./programs
     ./pkgs.nix

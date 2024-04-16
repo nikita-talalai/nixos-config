@@ -19,15 +19,19 @@
 
   outputs = inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-
       imports = [
         ./hosts
         ./home-manager
         inputs.treefmt-nix.flakeModule
       ];
 
-      systems = [ "x86_64-linux" ];
-      perSystem = { config, pkgs, system, ... }: {
+      systems = ["x86_64-linux"];
+      perSystem = {
+        config,
+        pkgs,
+        system,
+        ...
+      }: {
         treefmt.config = {
           projectRootFile = "flake.nix";
           programs.alejandra.enable = true;
@@ -35,7 +39,7 @@
         formatter = config.treefmt.build.wrapper;
 
         devShells.default = pkgs.mkShell {
-         inputsFrom = [ config.treefmt.build.devShell ];
+          inputsFrom = [config.treefmt.build.devShell];
           packages = with pkgs; [
             just
             nil

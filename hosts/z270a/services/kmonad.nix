@@ -1,6 +1,4 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   systemd.services.kmonad = {
     wantedBy = ["multi-user.target"];
     after = ["network.target"];

@@ -26,7 +26,7 @@
         job_name = "z270a";
         static_configs = [
           {
-            targets = [ "127.0.0.1:9002" ];
+            targets = ["127.0.0.1:9002"];
           }
         ];
       }

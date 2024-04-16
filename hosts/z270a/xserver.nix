@@ -1,10 +1,12 @@
-{ inputs, pkgs, lib, ... }:
-
-let
-    myxmonad = inputs.xmonad.packages.x86_64-linux.default;
-    myxmobar = inputs.xmobar.packages.x86_64-linux.default;
-in
 {
+  inputs,
+  pkgs,
+  lib,
+  ...
+}: let
+  myxmonad = inputs.xmonad.packages.x86_64-linux.default;
+  myxmobar = inputs.xmobar.packages.x86_64-linux.default;
+in {
   services.xserver = {
     enable = true;
 
@@ -19,13 +21,15 @@ in
     };
 
     windowManager = {
-      session = [{
-        name = "xmonad";
-        start = ''
-           systemd-cat -t xmonad -- ${lib.getExe myxmonad} &
-           waitPID=$!
-        '';
-      }];
+      session = [
+        {
+          name = "xmonad";
+          start = ''
+            systemd-cat -t xmonad -- ${lib.getExe myxmonad} &
+            waitPID=$!
+          '';
+        }
+      ];
     };
   };
 
