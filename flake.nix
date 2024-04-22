@@ -15,6 +15,9 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
     xmonad.url = "github:nikita-talalai/xmonad-nix";
     xmobar.url = "github:nikita-talalai/xmobar-nix";
+
+    flake-root.url = "github:srid/flake-root";
+    mission-control.url = "github:Platonic-Systems/mission-control";
   };
 
   outputs = inputs:
@@ -22,7 +25,10 @@
       imports = [
         ./hosts
         ./home-manager
+        ./nix
         inputs.treefmt-nix.flakeModule
+        inputs.flake-root.flakeModule
+        inputs.mission-control.flakeModule
       ];
 
       systems = ["x86_64-linux"];
@@ -39,9 +45,11 @@
         formatter = config.treefmt.build.wrapper;
 
         devShells.default = pkgs.mkShell {
-          inputsFrom = [config.treefmt.build.devShell];
+          inputsFrom = [
+            config.treefmt.build.devShell
+            config.mission-control.devShell
+          ];
           packages = with pkgs; [
-            just
             nil
           ];
         };
