@@ -11,7 +11,7 @@ in {
     enable = true;
 
     layout = "us, ru";
-    xkbOptions = "grp:lalt_lshift_toggle";
+    xkbOptions = "grp:shifts_toggle";
 
     displayManager = {
       lightdm.enable = true;
