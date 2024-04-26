@@ -18,6 +18,7 @@
       tmuxPlugins.catppuccin
       tmuxPlugins.tilish
       tmuxPlugins.resurrect
+      tmuxPlugins.extrakto
     ];
   };
 }
