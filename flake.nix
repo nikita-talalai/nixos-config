@@ -13,7 +13,8 @@
     nvim.url = "github:nikita-talalai/nvim-nix";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    xmonad.url = "github:nikita-talalai/xmonad-nix";
+    # xmonad.url = "github:nikita-talalai/xmonad-nix";
+    xmonad.url = "/home/nikita/personal/github/xmonad-nix/master";
     xmobar.url = "github:nikita-talalai/xmobar-nix";
 
     flake-root.url = "github:srid/flake-root";
@@ -21,7 +22,18 @@
   };
 
   outputs = inputs:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+  let
+    commonArgs = { system = "x86_64-linux"; config.allowUnfree = true; };
+    pkgs = import inputs.nixpkgs commonArgs;
+    pkgs-unstable = import inputs.nixpkgs-unstable commonArgs;
+  in
+    inputs.flake-parts.lib.mkFlake {
+      inherit inputs;
+      specialArgs = {
+        inherit pkgs;
+        inherit pkgs-unstable;
+      };
+    } {
       imports = [
         ./hosts
         ./home-manager

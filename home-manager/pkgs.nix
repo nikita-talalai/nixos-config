@@ -1,8 +1,10 @@
 {
   pkgs,
+  pkgs-unstable,
   inputs,
   ...
-}: {
+}: 
+{
   home.packages = with pkgs; [
     fastfetch
     firefox
@@ -22,5 +24,9 @@
     scrot
     qbittorrent
     vlc
+    xcolor
+  ]
+  ++ [
+    pkgs-unstable.obsidian
   ];
 }
