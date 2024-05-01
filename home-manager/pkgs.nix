@@ -25,6 +25,7 @@
     qbittorrent
     vlc
     xcolor
+    weechat
   ]
   ++ [
     pkgs-unstable.obsidian
