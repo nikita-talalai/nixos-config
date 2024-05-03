@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  screenshot = pkgs.writeShellScriptBin "screenshot" ''
+  screenshot-wayland = pkgs.writeShellScriptBin "screenshot-wayland" ''
     #Inspired by Stephan Raabe (https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/scripts/screenshot.sh?ref_type=heads)
 
     option1="Select area"
@@ -20,4 +20,4 @@
         ;;
     esac
   '';
-in {home.packages = [screenshot];}
+in {home.packages = [screenshot-wayland];}

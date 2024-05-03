@@ -11,6 +11,7 @@
     ./pkgs.nix
     ./theme.nix
     ./kmonad.nix
+    ./scripts
   ];
 
   nixpkgs = {

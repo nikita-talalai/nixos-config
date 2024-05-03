@@ -1,1 +1,6 @@
-{imports = [./screenshot.nix ./zoom.nix];}
+{
+  imports = [
+    ./screenshot-wayland.nix
+    ./zoom.nix
+  ];
+}
