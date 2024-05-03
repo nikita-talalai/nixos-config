@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.tmux = {
     enable = true;
-    shortcut = "Space";
+    prefix = "C-Space";
     terminal = "tmux-256color";
     shell = "${pkgs.zsh}/bin/zsh";
     keyMode = "vi";
