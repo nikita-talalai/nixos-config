@@ -26,6 +26,7 @@
     vlc
     xcolor
     weechat
+    rclone
   ]
   ++ [
     pkgs-unstable.obsidian
