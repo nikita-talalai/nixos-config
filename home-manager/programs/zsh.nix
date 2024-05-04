@@ -57,6 +57,7 @@
       precmd_functions+=(_fix_cursor)
 
       bindkey -M viins '\e.' insert-last-word
+      bindkey -M viins 'jk' vi-cmd-mode
     '';
 
     plugins = [
