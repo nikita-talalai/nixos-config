@@ -2,6 +2,8 @@
   screenshot-x = pkgs.writeShellScriptBin "screenshot-x" ''
     #Inspired by Stephan Raabe (https://gitlab.com/stephan-raabe/dotfiles/-/blob/main/hypr/scripts/screenshot.sh?ref_type=heads)
 
+    dir="''$HOME/personal/pictures/screenshots"
+    
     option1="Select area"
     option2="Focused window"
     option3="Left monitor"
@@ -13,23 +15,33 @@
 
     case $choice in
         $option1)
-            ${pkgs.scrot}/bin/scrot '%d-%m-%Y_$wx$h_$W' -d b3 -s -f
+            ${pkgs.scrot}/bin/scrot -d b3 -s -f - \
+                | tee "''$dir/$(date +"%d-%m-%Y_%H_%M").png" \
+                | xclip -selection clipboard -t image/png
             dunstify "Screenshot created" "Mode: Area"
         ;;
         $option2)
-            ${pkgs.scrot}/bin/scrot '%d-%m-%Y_$wx$h_$W' -d 3 -u
+            ${pkgs.scrot}/bin/scrot -d 3 -u - \
+                | tee "''$dir/$(date +"%d-%m-%Y_%H_%M").png" \
+                | xclip -selection clipboard -t image/png
             dunstify "Screenshot created" "Mode: Focused window"
         ;;
         $option3)
-            ${pkgs.scrot}/bin/scrot '%d-%m-%Y_$wx$h_$W' -d 3 -M 0
+            ${pkgs.scrot}/bin/scrot -d 3 -M 0 - \
+                | tee "''$dir/$(date +"%d-%m-%Y_%H_%M").png" \
+                | xclip -selection clipboard -t image/png
             dunstify "Screenshot created" "Mode: Left monitor"
         ;;
         $option4)
-            ${pkgs.scrot}/bin/scrot '%d-%m-%Y_$wx$h_$W' -d 3 -M 1
+            ${pkgs.scrot}/bin/scrot -d 3 -M 1 - \
+                | tee "''$dir/$(date +"%d-%m-%Y_%H_%M").png" \
+                | xclip -selection clipboard -t image/png
             dunstify "Screenshot created" "Mode: Right monitor"
         ;;
         $option5)
-            ${pkgs.scrot}/bin/scrot '%d-%m-%Y_$wx$h_$W' -d 3
+            ${pkgs.scrot}/bin/scrot -d 3 - \
+                | tee "''$dir/$(date +"%d-%m-%Y_%H_%M").png" \
+                | xclip -selection clipboard -t image/png
             dunstify "Screenshot created" "Mode: Both monitors"
         ;;
     esac
