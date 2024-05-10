@@ -1,8 +1,10 @@
+{ inputs, ... }:
+
 {
   imports = [
     ./configuration.nix
     ./pkgs.nix
-    ./xserver.nix
+    "${inputs.self}/modules/xserver.nix"
     ./services
   ];
 }

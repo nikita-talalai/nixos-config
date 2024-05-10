@@ -27,7 +27,10 @@
     auto-optimise-store = true;
   };
 
-  networking.hostName = "z270a";
+  networking = {
+	hostName = "z270a";
+	networkmanager.enable = true;
+  };
 
   boot.loader.systemd-boot.enable = true;
 

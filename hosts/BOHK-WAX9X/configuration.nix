@@ -6,7 +6,10 @@
   pkgs,
   ...
 }: {
-  imports = [./hardware-configuration.nix];
+  imports = [
+    ./hardware-configuration.nix
+    "${inputs.self}/modules/xserver.nix"
+  ];
 
   nixpkgs = {config = {allowUnfree = true;};};
 
