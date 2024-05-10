@@ -33,7 +33,7 @@
       ZSH_THEME_GIT_PROMPT_STAGED="%{$fg[green]%}%{●%G%}"
       ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[red]%}%{✚%G%}"
 
-      KEYTIMEOUT=5
+      KEYTIMEOUT=15
 
       function zle-keymap-select {
          if [[ ''${KEYMAP} == vicmd ]] ||
@@ -58,6 +58,9 @@
 
       bindkey -M viins '\e.' insert-last-word
       bindkey -M viins 'jk' vi-cmd-mode
+      autoload edit-command-line
+      zle -N edit-command-line
+      bindkey -M vicmd v edit-command-line
     '';
 
     plugins = [
