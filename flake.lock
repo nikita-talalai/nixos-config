@@ -748,17 +748,16 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
+        "dirtyRev": "f5e8f64f876a7141aebd089af54898aabd612e5c-dirty",
+        "dirtyShortRev": "f5e8f64-dirty",
         "lastModified": 1715027943,
-        "narHash": "sha256-+1sCm6+j+fsAz9aO57HHS9kddbyVRtEWi2t752ClOYw=",
-        "ref": "refs/heads/master",
-        "rev": "f5e8f64f876a7141aebd089af54898aabd612e5c",
-        "revCount": 17,
+        "narHash": "sha256-vdWY/DtaZ02sCFIDUp7otxnuqg8z8aISYxYMq53MTxQ=",
         "type": "git",
-        "url": "file:///home/nikita/personal/github/xmonad-nix"
+        "url": "file:///home/nikita/personal/github/xmonad-nix/master"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/nikita/personal/github/xmonad-nix"
+        "url": "file:///home/nikita/personal/github/xmonad-nix/master"
       }
     }
   },

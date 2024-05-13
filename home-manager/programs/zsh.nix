@@ -61,6 +61,11 @@
       autoload edit-command-line
       zle -N edit-command-line
       bindkey -M vicmd v edit-command-line
+
+      function bottom_prompt {
+        tput cup $(($LINES-1)) 0
+      }
+      add-zsh-hook precmd bottom_prompt
     '';
 
     plugins = [
