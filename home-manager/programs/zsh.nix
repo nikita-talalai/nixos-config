@@ -62,6 +62,8 @@
       zle -N edit-command-line
       bindkey -M vicmd v edit-command-line
 
+      zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+
       function bottom_prompt {
         tput cup $(($LINES-1)) 0
       }
