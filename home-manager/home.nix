@@ -1,16 +1,11 @@
 {
   inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
   ...
 }: {
   imports = [
     ./programs
     ./pkgs.nix
     ./theme.nix
-    ./kmonad.nix
     ./scripts
   ];
 
