@@ -68,6 +68,10 @@
         tput cup $(($LINES-1)) 0
       }
       add-zsh-hook precmd bottom_prompt
+
+        lfcd () {
+          cd "$(command lf -print-last-dir "$@")"
+        }
     '';
 
     plugins = [

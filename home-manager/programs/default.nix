@@ -18,5 +18,6 @@
     ./swappy.nix
     ./zoxide.nix
     ./tmux
+    ./lf.nix
   ];
 }
