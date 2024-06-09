@@ -10,5 +10,6 @@
 
     ltrace
     file
+    dmenu-bluetooth
   ];
 }
