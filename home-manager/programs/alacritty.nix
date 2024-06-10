@@ -8,7 +8,6 @@
       font.size = 15;
 
       cursor.style = "Beam";
-      cursor.blinking = "Off";
 
       selection.save_to_clipboard = true;
 
