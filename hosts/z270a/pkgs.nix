@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, inputs, ...}: {
   environment.systemPackages = with pkgs; [
     vim
     curl
@@ -11,5 +11,6 @@
     ltrace
     file
     dmenu-bluetooth
+    inputs.xmobar.packages.x86_64-linux.default
   ];
 }

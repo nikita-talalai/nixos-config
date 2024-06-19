@@ -36,6 +36,5 @@ in {
   environment.systemPackages = with pkgs; [
     xorg.xev
     myxmonad
-    myxmobar
   ];
 }

@@ -5,11 +5,20 @@
   config,
   pkgs,
   ...
-}: {
+}: 
+
+let
+  myxmobar = inputs.xmobar.packages.x86_64-linux.default.overrideDerivation (oldAttrs: {
+      patches = [./xmobar-patch.diff];
+      });
+in
+{
   imports = [
     ./hardware-configuration.nix
     "${inputs.self}/modules/xserver.nix"
   ];
+
+  environment.systemPackages = [ myxmobar ];
 
   nixpkgs = {config = {allowUnfree = true;};};
 
