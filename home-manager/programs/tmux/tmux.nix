@@ -45,7 +45,14 @@
         '';
       }
       tmuxPlugins.resurrect
-      tmuxPlugins.extrakto
+      {
+        plugin = callPackage ./extrakto.nix { };
+        extraConfig = ''
+          set -g @extrakto_filter_order 'line path s-quote all'
+          set -g @extrakto_insert_key 'enter'
+          set -g @extrakto_copy_key 'tab'
+        '';
+      }
     ];
   };
 }
