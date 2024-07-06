@@ -33,6 +33,7 @@
   };
 
   boot.loader.systemd-boot.enable = true;
+  boot.kernel.sysctl."kernel.sysrq" = 128;
 
   users.users = {
     nikita = {
