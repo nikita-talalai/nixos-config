@@ -1,9 +1,4 @@
 {
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-  };
-
   xdg.mimeApps = {
     enable = true;
     defaultApplications = { "application/pdf" = "org.pwmt.zathura.desktop"; };
@@ -24,5 +19,6 @@
     ./zoxide.nix
     ./tmux
     ./lf.nix
+    ./direnv
   ];
 }
