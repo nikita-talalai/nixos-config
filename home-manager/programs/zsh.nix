@@ -12,13 +12,11 @@
 
     sessionVariables = {
       EDITOR = "nvim";
+      PERSONAL = "$HOME/personal";
     };
 
     shellAliases = {
-      nvim-new = ''NVIM_APPNAME="nvim-kickstart" nvim'';
-      personal = "cd ~/personal/";
       ll = "eza --total-size";
-      nixos = "cd \${NIXOS_CONFIG}";
     };
 
     history.size = 10000;
@@ -60,6 +58,8 @@
       bindkey -M viins 'jk' vi-cmd-mode
       bindkey "^H" backward-delete-char
       bindkey "^?" backward-delete-char
+      bindkey -s "^F" 'fzf-sessions^J'
+      bindkey -s "^G" 'fzf-windows^J'
       autoload edit-command-line
       zle -N edit-command-line
       bindkey -M vicmd v edit-command-line
@@ -74,6 +74,17 @@
         lfcd () {
           cd "$(command lf -print-last-dir "$@")"
         }
+
+        tmp () {
+          nix flake init -t "github:nikita-talalai/templates#$1"
+          direnv allow
+        }
+
+        dev () {
+          nix develop github:nikita-talalai/devShells#$1 -c zsh
+        }
+
+        eval "$(direnv hook zsh)"
     '';
 
     plugins = [
