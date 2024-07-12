@@ -19,6 +19,7 @@
     ./zoxide.nix
     ./tmux
     ./lf.nix
+    ./gdb.nix
     ./direnv
   ];
 }
