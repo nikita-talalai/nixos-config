@@ -58,8 +58,6 @@
       bindkey -M viins 'jk' vi-cmd-mode
       bindkey "^H" backward-delete-char
       bindkey "^?" backward-delete-char
-      bindkey -s "^F" 'fzf-sessions^J'
-      bindkey -s "^G" 'fzf-windows^J'
       autoload edit-command-line
       zle -N edit-command-line
       bindkey -M vicmd v edit-command-line
