@@ -38,7 +38,7 @@
   users.users = {
     nikita = {
       isNormalUser = true;
-      extraGroups = ["wheel" "input" "uinput"];
+      extraGroups = ["wheel" "input" "uinput" "libvirtd"];
       shell = pkgs.zsh;
     };
   };
@@ -98,6 +98,9 @@
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   system.stateVersion = "23.11";
 }
