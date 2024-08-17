@@ -13,8 +13,7 @@
     nvim.url = "github:nikita-talalai/nvim-nix";
 
     treefmt-nix.url = "github:numtide/treefmt-nix";
-    # xmonad.url = "github:nikita-talalai/xmonad-nix";
-    xmonad.url = "/home/nikita/personal/github/xmonad-nix/master";
+    xmonad.url = "github:nikita-talalai/xmonad-nix";
     xmobar.url = "github:nikita-talalai/xmobar-nix";
 
     flake-root.url = "github:srid/flake-root";

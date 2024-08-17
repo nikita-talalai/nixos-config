@@ -733,15 +733,15 @@
       "locked": {
         "lastModified": 1715915340,
         "narHash": "sha256-xqhbVqYuu6hL4hSz82n55RO3IuYyBd4JWL/fbdvovgs=",
-        "ref": "refs/heads/master",
+        "owner": "nikita-talalai",
+        "repo": "xmonad-nix",
         "rev": "2ebf3ae5d911825024d5ae4c7b42003622e39458",
-        "revCount": 19,
-        "type": "git",
-        "url": "file:///home/nikita/personal/github/xmonad-nix/master"
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:///home/nikita/personal/github/xmonad-nix/master"
+        "owner": "nikita-talalai",
+        "repo": "xmonad-nix",
+        "type": "github"
       }
     }
   },
