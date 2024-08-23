@@ -8,7 +8,6 @@
     ./hypr
     ./lazygit.nix
     ./git.nix
-    ./zsh.nix
     ./rofi.nix
     ./dunst.nix
     ./zathura.nix
@@ -21,5 +20,6 @@
     ./lf.nix
     ./gdb.nix
     ./direnv
+    ./zsh
   ];
 }
