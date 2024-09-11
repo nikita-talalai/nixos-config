@@ -12,6 +12,8 @@
     extraConfig = ''
       set-option -g status-position top
       set-option -ga terminal-overrides ",xterm-256color:RGB"
+      set-option -g mouse on
+      set-environment -g 'IGNOREEOF' 2
       bind-key C-f run-shell "tmux neww fzf-sessions"
       bind-key C-g run-shell "tmux neww fzf-windows"
 
