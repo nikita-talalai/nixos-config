@@ -1,6 +1,6 @@
 {
   programs.eza = {
-    enable = true;
+    enable = false;
     extraOptions = ["-al" "--ignore-glob=.git" "--group-directories-first"];
   };
 }

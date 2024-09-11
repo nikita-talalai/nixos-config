@@ -26,6 +26,10 @@
     xcolor
     weechat
     rclone
+    p7zip
+    busybox
+    # archivebox
+    syncthing
   ]
   ++ [
     pkgs-unstable.obsidian
