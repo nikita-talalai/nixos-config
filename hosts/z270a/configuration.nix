@@ -102,5 +102,7 @@
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
 
+  virtualisation.docker.enable = true;
+
   system.stateVersion = "23.11";
 }
