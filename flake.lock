@@ -731,11 +731,11 @@
         "treefmt-nix": "treefmt-nix_3"
       },
       "locked": {
-        "lastModified": 1715915340,
-        "narHash": "sha256-xqhbVqYuu6hL4hSz82n55RO3IuYyBd4JWL/fbdvovgs=",
+        "lastModified": 1728759234,
+        "narHash": "sha256-ur+YzOnbpZaD2tu0l4447kr1ahLMrHbjXI3kIDxEuQs=",
         "owner": "nikita-talalai",
         "repo": "xmonad-nix",
-        "rev": "2ebf3ae5d911825024d5ae4c7b42003622e39458",
+        "rev": "8207ed6bc3472631f395ff9cf291d087ffef6458",
         "type": "github"
       },
       "original": {
